@@ -5,6 +5,4 @@
  * Use tables film and language, and order the results alphabetically by film title.
  */
 
-# language id in common
-
-SELECT film_id, title, language_id, language.name FROM film JOIN language USING (language_id) WHERE language_id =1 AND title LIKE 'k%' OR 'q%' ORDER BY title;
+SELECT film_id, title, language_id, language.name FROM film JOIN language USING (language_id) WHERE language_id =1 AND title LIKE 'K%' OR title LIKE 'Q%'  ORDER BY title;

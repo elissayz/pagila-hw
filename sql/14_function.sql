@@ -3,9 +3,15 @@
  * Use table category, film_category, and film.
  */
 
-CREATE OR REPLACE FUNCTION list_category(TEXT) RETURNS TABLE(title TEXT) AS
+CREATE OR REPLACE FUNCTION list_category(text_param TEXT) RETURNS TABLE(title TEXT) AS
 $$
--- FIXME: implementation goes here
+SELECT 
+film.title AS list_category
+FROM film
+LEFT JOIN film_category fc ON film.film_id = fc.film_id
+LEFT JOIN category ON fc.category_id = category.category_id
+WHERE category.name = text_param
+ORDER BY film.title
 $$
 LANGUAGE SQL
 IMMUTABLE
